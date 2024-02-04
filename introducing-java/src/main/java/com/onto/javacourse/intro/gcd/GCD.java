@@ -1,3 +1,11 @@
+/**
+ * The GCD (Greatest Common Divisor) class provides calculation methods
+ * greatest common divisor and least common multiple of two integers.
+ * These methods follow a mathematical algorithm to efficiently find the GCD
+ * and then use it to determine the LCM.
+ *
+ * @author Maksim Simeonov
+ */
 public class GCD {
     /**
      * Calculates the greatest common divisor of two numbers.
@@ -10,16 +18,16 @@ public class GCD {
     public static int calculateGcd(int firstNumber, int secondNumber) {
         if (firstNumber == 0 || secondNumber == 0) {
             throw new IllegalArgumentException("Invalid numbers, they cannot be 0.");
-        } else {
-            while (firstNumber != secondNumber) {
-                if (firstNumber > secondNumber) {
-                    firstNumber -= secondNumber;
-                } else {
-                    secondNumber -= firstNumber;
-                }
-            }
-            return firstNumber;
         }
+        while (firstNumber != secondNumber) {
+            if (firstNumber > secondNumber) {
+                firstNumber -= secondNumber;
+            } else {
+                secondNumber -= firstNumber;
+            }
+        }
+        return firstNumber;
+
     }
 
     /**
@@ -33,9 +41,9 @@ public class GCD {
     public static int calculateLcm(int firstNumber, int secondNumber) {
         if (firstNumber == 0 || secondNumber == 0) {
             throw new IllegalArgumentException("Invalid numbers, they cannot be 0.");
-        } else {
-            return (firstNumber * secondNumber) / calculateGcd(firstNumber, secondNumber);
         }
+        return (firstNumber * secondNumber) / calculateGcd(firstNumber, secondNumber);
+
     }
 }
 
