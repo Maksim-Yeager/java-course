@@ -1,33 +1,42 @@
 public class GCD {
-
     /**
-     * Method to find GCD
+     * Calculates the greatest common divisor of two numbers.
+     *
+     * @param firstNumber  The first integer.
+     * @param secondNumber The second integer.
+     * @return The greatest common divisor of the two numbers.
+     * @throws IllegalArgumentException If both numbers are 0 or only one of them is 0.
      */
-    public static int GCD(int a, int b) {
-        if (a != 0 || b != 0) {
-            while (a != b) {
-                if (a > b) {
-                    a -= b;
+    public static int calculateGcd(int firstNumber, int secondNumber) {
+        if (firstNumber == 0 || secondNumber == 0) {
+            throw new IllegalArgumentException("Invalid numbers, they cannot be 0.");
+        } else {
+            while (firstNumber != secondNumber) {
+                if (firstNumber > secondNumber) {
+                    firstNumber -= secondNumber;
                 } else {
-                    b -= a;
+                    secondNumber -= firstNumber;
                 }
             }
-            return a;
-        } else {
-            throw new IllegalArgumentException("Invalid numbers");
+            return firstNumber;
         }
     }
 
     /**
-     * Method to find LCM
+     * Calculates the least common multiple of two numbers.
+     *
+     * @param firstNumber  The first integer.
+     * @param secondNumber The second integer.
+     * @return The least common multiple of the two numbers.
+     * @throws IllegalArgumentException If both numbers are 0 or only one of them is 0.
      */
-    public static int LCM(int a, int b) {
-        if (a != 0 || b != 0) {
-            return (a * b) / GCD(a, b);
+    public static int calculateLcm(int firstNumber, int secondNumber) {
+        if (firstNumber == 0 || secondNumber == 0) {
+            throw new IllegalArgumentException("Invalid numbers, they cannot be 0.");
         } else {
-            throw new IllegalArgumentException("Invalid numbers");
+            return (firstNumber * secondNumber) / calculateGcd(firstNumber, secondNumber);
         }
-
     }
-
 }
+
+
