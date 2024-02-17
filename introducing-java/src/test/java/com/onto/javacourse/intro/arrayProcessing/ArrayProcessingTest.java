@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -12,7 +13,7 @@ public class ArrayProcessingTest {
         assertEquals(0, ArrayProcessing.getMinElementIndex(new int[]{1, 2, 3, 4, 5}));
         assertEquals(4, ArrayProcessing.getMinElementIndex(new int[]{10, 20, 30, 40, 5}));
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
-            ArrayProcessing.getMinElementIndex(new int[]{ });
+            ArrayProcessing.getMinElementIndex(new int[]{});
         });
         String expectedMessage = "Array must not be null or empty";
         String actualMessageBothZero = emptyArrayException.getMessage();
@@ -25,14 +26,13 @@ public class ArrayProcessingTest {
         assertEquals(15, ArrayProcessing.sum(new int[]{1, 2, 3, 4, 5}));
         assertEquals(105, ArrayProcessing.sum(new int[]{10, 20, 30, 40, 5}));
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
-            ArrayProcessing.sum(new int[]{ });
+            ArrayProcessing.sum(new int[]{});
         });
         String expectedMessage = "Array must not be null or empty";
         String actualMessageBothZero = emptyArrayException.getMessage();
         assertTrue(actualMessageBothZero.contains(expectedMessage));
     }
 
-    // Fix it
     @Test
     void testPrint() {
 
@@ -40,7 +40,7 @@ public class ArrayProcessingTest {
         String expected = "1 2 3 4 5 ";
         assertEquals(expected, ArrayProcessing.print(array));
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
-            ArrayProcessing.print(new int[]{ });
+            ArrayProcessing.print(new int[]{});
         });
         String expectedMessage = "Array must not be null or empty";
         String actualMessageBothZero = emptyArrayException.getMessage();
@@ -49,15 +49,14 @@ public class ArrayProcessingTest {
 
     @Test
     public void testFindLargestSumSubarray() {
-        int[] array = { -2, -1, -3, 4, -1, 2, 1, -5, 4 };
-        int[] expectedSubarray = { 4, -1, 2, 1 };
+        int[] array = {-2, -1, -3, 4, -1, 2, 1, -5, 4};
+        int[] expectedSubarray = {4, -1, 2, 1};
         int[] result = ArrayProcessing.findLargestSumSubarray(array);
-        for (int i = 0; i < result.length; i++)
-        {
+        for (int i = 0; i < result.length; i++) {
             assertEquals(expectedSubarray[i], result[i]);
         }
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
-            ArrayProcessing.findLargestSumSubarray(new int[]{ });
+            ArrayProcessing.findLargestSumSubarray(new int[]{});
         });
         String expectedMessage = "Array must not be null or empty";
         String actualMessageBothZero = emptyArrayException.getMessage();
