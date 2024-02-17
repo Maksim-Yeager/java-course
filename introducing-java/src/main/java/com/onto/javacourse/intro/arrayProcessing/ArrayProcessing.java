@@ -4,7 +4,7 @@ import java.util.Arrays;
  * This class provides various methods for processing arrays.
  */
 public class ArrayProcessing {
-
+    
     /**
      * Finds the index of the minimum element in the array.
      *
@@ -16,15 +16,12 @@ public class ArrayProcessing {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array must not be null or empty");
         }
-
         int minIndex = 0;
-
         for (int i = 1; i < array.length; i++) {
             if (array[i] < minValue[minIndex]) {
                 minIndex = i;
             }
         }
-
         return minIndex;
     }
 
@@ -39,12 +36,10 @@ public class ArrayProcessing {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array must not be null or empty");
         }
-
         int arraySum = 0;
         for (int i = 0; i < array.length; i++) {
             arraySum += array[i];
         }
-
         return arraySum;
     }
 
@@ -59,7 +54,6 @@ public class ArrayProcessing {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array must not be null or empty");
         }
-
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
             sb.append(array[i]).append(" ");
@@ -78,13 +72,11 @@ public class ArrayProcessing {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array must not be null or empty");
         }
-
         int maxSum = Integer.MIN_VALUE;
         int currentSum = 0;
         int start = 0;
         int end = 0;
         int temp = 0;
-
         for (int i = 0; i < array.length; i++) {
             currentSum += array[i];
             if (currentSum > maxSum) {
@@ -97,7 +89,6 @@ public class ArrayProcessing {
                 temp = i + 1;
             }
         }
-
         int[] subarray = Arrays.copyOfRange(array, start, end + 1);
         return subarray;
     }
