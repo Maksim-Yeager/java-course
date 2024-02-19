@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ArraySortingTest {
     @Test
-    public void quickSortTest(){
+    public void quickSortTest() {
         int[] array = {5, 4, 3, 6, 2, 1};
         int[] sortedArray = {1, 2, 3, 4, 5, 6};
         ArraySorting.sort(array);

@@ -4,7 +4,7 @@ public class ArraySorting {
      *
      * @param array the array of integers to be sorted
      */
-    public static void sort ( int[] array){
+    public static void sort(int[] array) {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array must not be null or empty");
         }
@@ -18,7 +18,7 @@ public class ArraySorting {
      * @param low   the index of the first element in the subarray
      * @param high  the index of the last element in the subarray
      */
-    private static void quickSort ( int[] array, int low, int high){
+    private static void quickSort(int[] array, int low, int high) {
         if (low < high) {
             int pi = partition(array, low, high);
             quickSort(array, low, pi - 1);
@@ -34,7 +34,7 @@ public class ArraySorting {
      * @param high  the index of the last element in the subarray
      * @return the index of the pivot element after partitioning
      */
-    private static int partition ( int[] array, int low, int high){
+    private static int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = low - 1;
         for (int j = low; j < high; j++) {
@@ -54,7 +54,7 @@ public class ArraySorting {
      * @param i     the index of the first element
      * @param j     the index of the second element
      */
-    private static void swap ( int[] array, int i, int j){
+    private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
