@@ -1,4 +1,5 @@
 public class ArraySorting {
+
     /**
      * Sorts the given array using the QuickSort algorithm.
      *
