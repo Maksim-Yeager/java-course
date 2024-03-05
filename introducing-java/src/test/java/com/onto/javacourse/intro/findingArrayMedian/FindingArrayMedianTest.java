@@ -10,7 +10,7 @@ public class FindingArrayMedianTest {
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
             FindingArrayMedian.findMedianPosition(new int[]{});
         });
-        String expectedMessage = "Array must not be null or empty";
+        String expectedMessage = "Array must have at least two elements";
         String actualMessageBothZero = emptyArrayException.getMessage();
         assertTrue(actualMessageBothZero.contains(expectedMessage));
 

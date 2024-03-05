@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * The ArrayProcessing class provides various methods for processing integer arrays.
  */
@@ -10,21 +12,24 @@ public class FindingArrayMedian {
      * @return The position of the median when counting starts from 1.
      */
     public static int findMedianPosition(int[] array) {
-        if (array == null || array.length == 0) {
-            throw new IllegalArgumentException("Array must not be null or empty");
+        if (array == null || array.length < 2) {
+            throw new IllegalArgumentException("Array must have at least two elements");
         }
 
-        int totalSum = 0;
-        for (int num : array) {
-            totalSum += num;
-        }
+        int totalSum = Arrays.stream(array).sum();
         int leftSum = 0;
+        int rightSum = 0;
+        int minDiff = Integer.MAX_VALUE;
+        int index = -1;
         for (int i = 0; i < array.length; i++) {
             leftSum += array[i];
-            if (leftSum >= totalSum / 2) {
-                return i + 1;
+            rightSum = totalSum - leftSum + array[i];
+            int diff = Math.abs(leftSum - rightSum);
+            if (diff < minDiff) {
+                minDiff = diff;
+                index = i;
             }
         }
-        return -1;
+        return index + 1;
     }
 }
