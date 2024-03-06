@@ -10,18 +10,15 @@ public class ArrayReverse {
      * @return the reversed array
      */
     public static int[] arrayReverse(int[] array) {
-        if (array == null || array.length == 0)
-        {
-            throw new IllegalArgumentException("The array can not be empty!!!");
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("The array can not be empty or null!!!");
         }
         int start = 0;
-        int end = array.length - 1;
         int[] reversedArray = new int[array.length];
-        while (start <= end) {
-            reversedArray[start] = array[end];
-            reversedArray[end] = array[start];
+        while (start <= array.length - 1 - start) {
+            reversedArray[start] = array[array.length - 1 - start];
+            reversedArray[array.length - 1 - start] = array[start];
             start++;
-            end--;
         }
         return reversedArray;
     }

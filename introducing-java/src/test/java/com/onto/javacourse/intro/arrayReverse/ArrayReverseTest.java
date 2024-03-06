@@ -11,9 +11,15 @@ public class ArrayReverseTest {
         assertArrayEquals(expectedArray, reversedArray);
         Exception emptyArrayException = assertThrows(IllegalArgumentException.class, () -> {
             ArrayReverse.arrayReverse(new int[]{});
+            ArrayReverse.arrayReverse(null);
         });
-        String expectedMessage = "The array can not be empty!!!";
-        String actualMessageBothZero = emptyArrayException.getMessage();
-        assertTrue(actualMessageBothZero.contains(expectedMessage));
+        Exception nullArrayException = assertThrows(IllegalArgumentException.class, () -> {
+            ArrayReverse.arrayReverse(null);
+        });
+        String expectedMessage = "The array can not be empty or null!!!";
+        String actualMessageEmpty = emptyArrayException.getMessage();
+        assertTrue(actualMessageEmpty.contains(expectedMessage));
+        String actualMessageNull = nullArrayException.getMessage();
+        assertTrue(actualMessageNull.contains(expectedMessage));
     }
 }
